@@ -10,7 +10,6 @@ c.execute('''CREATE TABLE Courses
              (course_id INTEGER PRIMARY KEY,
               course_name TEXT,
               instructor TEXT)''')
-# Indsætter records i Students tabel
 students_data = [(1, 'Emma Nielsen', 'AI'),
                  (2, 'Liam Jensen', 'Matematik'),
                  (3, 'Freja Larsen', 'Dansk'),
