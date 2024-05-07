@@ -1,25 +1,20 @@
 import os
 import platform
 
-# Afspil lyd fra en fil
 def play_sound(file_path):
     if platform.system() == 'Windows':
         os.system(f'start {file_path}')
     else:
         os.system(f'xdg-open {file_path}')
-
-# Optag lyd fra mikrofonen
 def record_sound(duration, output_file):
     import sounddevice as sd
     from scipy.io.wavfile import write
-
-    fs = 44100  # Samplingsfrekvens (samples pr. sekund)
+    fs = 44100  
     print("Optagelse påbegyndt...")
     my_recording = sd.rec(int(duration * fs), samplerate=fs, channels=2, dtype='int16')
-    sd.wait()  # Vent på at optagelsen er færdig
-    write(output_file, fs, my_recording)  # Gem optagelsen som en WAV-fil
+    sd.wait() 
+    write(output_file, fs, my_recording)  
 
-# Hovedfunktionen
 def main():
     print("Velkommen til lydprogrammet!")
 
